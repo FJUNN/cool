@@ -1,0 +1,45 @@
+---
+layout: base
+---
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{site.baseurl}}/img/{{page.pic|default: 'home-bg.jpg'}}')">
+  <div class="overlay"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{page.title}}</h1>
+          <h2 class="subheading">{{page.subtitle|default:page.excerpt|strip_html|truncate:100}}</h2>
+          <span class="meta">Posted by
+            <a href="#">{{page.author|default: site.author}}</a>
+            on {{page.date|date_to_long_string}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{content}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="clearfix">
+          {% if page.previous %}
+            <a class="btn btn-primary float-left" href="{{site.baseurl}}/{{page.previous.url}}">上一篇： {{page.previous.title}}</a>
+          {% endif %}
+          {% if page.next %}
+            <a class="btn btn-primary float-right" href="{{site.baseurl}}/{{page.next.url}}">下一篇： {{page.next.title}}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr>
